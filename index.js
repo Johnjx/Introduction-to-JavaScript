@@ -12,49 +12,43 @@ returns a value, that value will be logged to the console.  An example of this w
 
 /*
 Task 1a - Voting Age (not auto tested)
-
 Do the following:   
    1. Create a variable called votingAge and assign it a number value
    2. Console log true if age is 18 or higher
-
    HINT: no function required
 */
-// const votingAge = 21;
-// if (votingAge >= 18){
-//   console.log(true);
-// }
+ const votingAge = 21;
+ if (votingAge >= 18){
+   console.log(true);
+ }
 
 
 /*
 Task 1b - Values (not auto tested)
-
 Do the following:   
    1. Declare two variables and assign them values (good names for these might be firstThing and secondThing)
    2. Use a conditional to check the value of the 1st variable versus the value assigned to the 2nd variable
    3. Change the value of the 1st variable if the conditional in step 2 is true
    4. Console log the value of the 1st variable
-
    HINT: no function required
 */
-// let firstThing = 'first';
-// let secondThing = 'second';
-// firstThing === secondThing;
-// console.log(firstThing);
+ let firstThing = 'first';
+ let secondThing = 'second';
+ firstThing === secondThing;
+ console.log(firstThing);
 
 
 /*
 Task 1c - Convert Strings to Numbers (not auto tested)
-
 Do the following:   
    1. Declare a variable with the string type value of "1999"
    2. Convert the string value of "1999" to a integer value of 1999
    3. Console log the result
-
    HINT: look up the Number method
 */
-// let year = '1999'
-// year = 1999
-// console.log(year);
+ let year = '1999'
+ year = 1999
+ console.log(year);
 
 
 
@@ -97,18 +91,14 @@ Use the hungryDog function and feeding requirements below to do the following:
 1. Invoke the hungryDog function below and pass it a weight value in pounds, followed by an age value in years
 2. 🌟 NOTE: if the dog is a puppy, the age will be a decimal (rounded to two places). For example: 3 months = .25 (3 divided by 12)
 3. Do the proper calculations and return the number of pounds of raw food to feed the dog/puppy in a day
-
 REMEMBER: This program should handle correctly adult AND puppy ages and weights
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
-
 Feeding Requirements:
-
 Adult Dogs 1 year and older 
    up to 5 lbs - 5% of their body weight
    6 - 10 lbs - 4% of their body weight 
    11 - 15 lbs - 3% of their body weight 
    > 15lbs - 2% of their body weight 
-
 Puppies less than 1 year
    2 - 4 months 10% of their body weight
    4 - 7 months 5% of their body weight 
@@ -118,12 +108,9 @@ NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.449
 NOTE 2: This is a great time to check the tests to see what it expects, versus what is actually 
         returned from your function. This is an example of the output to look for on each test point. 
           ● hungryDogFunction › Dog is 1 year and is 5lbs or less
-
             expect(received).toBe(expected) // Object.is equality
-
             Expected: 0.2
             Received: undefined
-
               21 | describe('hungryDogFunction', ()=>{ 
               22 |   it('Dog is 1 year and is 5lbs or less', ()=>{
             > 23 |     expect(functions.hungryDog(4, 1)).toBe(0.2);
@@ -135,10 +122,24 @@ NOTE 2: This is a great time to check the tests to see what it expects, versus w
         So, on this one test, the weight would be 4 pounds, and the age would be 1 years old. It's expecting your function to return a decimal number of 0.2
 */  
 
-function hungryDog(/*add your code here*/){
-  /*add your code here*/
+function hungryDog(weight, age){
+  if(age >= 1 && weight <=5){
+    return weight * 0.05;
+  } else if(age >= 1 && weight >= 6 && weight <= 10) {
+    return weight * 0.04;
+  } else if (age >= 1 && weight >= 11 && weight <= 15) {
+    return weight * 0.03;
+  } else if(age >= 1 && weight > 15 ){
+    return weight * 0.02;
+  } else if (age < 1 && age >= 0.583){
+    return weight * 0.04;
+  } else if (age < 0.583 && age >= 0.333) {
+    return weight * 0.05;
+  } else if(age < 0.333){
+    return weight * 0.10;
+  } 
 }
-
+console.log(hungryDog(10, 1));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -149,7 +150,6 @@ Do the following:
 1. Create a new variable that randomly generates the computer's choice, this must not be done inside the function
 2. Use Math.random to determine the computer's choice (Math.random gives a random number between 0 and 1)
 3. Make a conditional that changes the variable to "rock", "paper", or "scissors" based on it's random number
-
 Use the game function below to do the following:
 1. Receive 2 parameters: a string with the user's choice of "rock", "paper", or "scissors" 
    and the computer's choice of "rock", "paper", or "scissors".
@@ -158,7 +158,6 @@ Use the game function below to do the following:
  - win should return "you win!"
  - lose should return "you lose!"
  - tie should return "it's a tie"
-
 RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors | Or there's a tie
 */
 
@@ -206,9 +205,7 @@ function feet(/*add your code here*/){
 Using the annoyingSong function below do the following:
 1. Receive a starting number
 2. The annoying song function should return the following string exactly one time:
-
     "{number you gave as an argument} bottles of soda on the wall, {number you gave as an argument} bottles of soda, take one down pass it around {number you gave as an argument minus 1} bottles of soda on the wall"
-
 3. Outside of the function, Make a loop that invokes annoying song with a number that decreases until it gets to 1 bottle left. 
 4. Each time the annoyingSong is run from this loop, it should console.log the string that was returned. 
 */
@@ -225,7 +222,6 @@ function annoyingSong(/*add your code here*/){
 Using the grade function below do the following: 
 1. Receive a score out of 100 
 2. Return the corresponding letter grade following this grade scale:
-
  90-100 should return 'you got an A' 
  80-89 should return 'you got a B'
  70-79 should return 'you got a C'
@@ -246,7 +242,6 @@ function grade(/*Your Code here */){
 Using the vowelCounter function below do the following:
 1. Receive a string as a parameter
 2. Count and return the number of vowels within that string.  It should handle both capitalized and uncapitalized vowels.
-
 HINT - you may need to study tomorrow's content on arrays 
 HINT - try looking up the .includes() method
 */
